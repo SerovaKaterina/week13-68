@@ -1,45 +1,58 @@
 //Задание 1
 // Создайте переменную currentDate и присвойте ей текущую дату. Значение выведите в консоль.
-
+const currentDate = new Date();
+console.log(currentDate);
 //Задание 2
 // Создайте переменную currentYear и присвойте ей текущий год. Значение выведите в консоль.
-
+const currentYear = new Date().getFullYear();
+console.log(currentYear);
 //Задание 3
 // Создайте переменную currentMonth и присвойте ей текущий месяц (от 0 до 11, где 0 - январь, 11 - декабрь). Значение выведите в консоль.
-
+const currentMonth = new Date().getMonth();
+console.log(currentMonth);
 //Задание 4
 // Создайте переменную currentDay и присвойте ей текущий день месяца. Значение выведите в консоль.
-
+const currentDay = new Date().getDate();
+console.log(currentDay);
 //Задание 5
 // Создайте переменную birthday и присвойте ей дату вашего дня рождения в текущем году. Значение выведите в консоль.
-
+const birthday = new Date('2023-08-06');
+console.log(birthday);
 //Задание 6
 // Создайте переменную futureDate и присвойте ей будущую дату (например, через 1 месяц и 10 дней от текущей даты). Значение выведите в консоль.
-
+const futureDate = new Date(new Date().getFullYear(), new Date().getMonth() + 1, new Date().getDate() + 10);
+console.log(futureDate);
 //Задание 7
 // Выведите в консоль разницу в днях между futureDate и currentDate
-
+const differenceData = futureDate-currentDate;//разница в миллисекундах
+console.log(Math.floor(differenceData/1000/3600/24));
 //Задание 8
 // Создайте переменную pastDate и присвойте ей прошедшую дату (например, 5 дней назад от текущей даты). Значение выведите в консоль.
-
+const pastDate = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate() - 5);
+console.log(pastDate);
 //Задание 9
 // Выведите в консоль разницу в днях между currentDate и pastDate
-
+const diffData = currentDate - pastDate;
+console.log(Math.floor(diffData/1000/3600/24));
 //Задание 10
 // Создайте переменную nextWeek и присвойте ей дату следующей недели. Значение выведите в консоль.
-
+const nextWeek = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate() + 7);
+console.log(nextWeek);
 //Задание 11
 // Выведите в консоль день недели для nextWeek
-
+console.log(nextWeek.getDay());
 //Задание 12
 // Создайте переменную futureYear и присвойте ей значение текущего года плюс 5. Значение выведите в консоль.
-
+const futureYear = new Date().getFullYear() + 5;
+console.log(futureYear);
 //Задание 13
 // Создайте переменную futureDateInFutureYear и присвойте ей дату вашего дня рождения в будущем году (futureYear). Значение выведите в консоль.
-
+const futureDateInFutureYear = new Date(futureYear, 7, 7);
+console.log(futureDateInFutureYear);
 //Задание 14
 // Выведите в консоль разницу в годах между futureYear и текущим годом
-
+const differenceYears = futureYear - new Date().getFullYear();
+console.log(differenceYears);
 //Задание 15
 // Используя метод Date.parse(), создайте новый объект date и преобразуйте переменную strDate в дату.
 // Выведите объект date в консоль.
