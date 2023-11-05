@@ -1,45 +1,43 @@
 const button = document.querySelector('.button');
 const info = document.getElementById('info');
 const inputDate = document.querySelector('.inputDate');
-const mistake = document.getElementById('mistake');
-
-function countDaysTill () {
-  let birthday = document.getElementById('birthday').value;
-  let msBirthday = Date.parse(birthday);
-  let today = Date.now();
-  let daysTill = Math.floor((msBirthday - today) / (1000 * 60 * 60 * 24));
-  let result = document.getElementById('result');
-  result.textContent = daysTill;
-  info.style.visibility = "visible";
-
-  let days = document.getElementById('days');
-  let lastDigit = daysTill % 10;
-  let secondLastDigit = Math.floor((daysTill % 100) / 10);
-
-  let blankInput = () => {
-      if(inputDate.value == "") {
-        mistake.style.display = "block";
-        info.style.display = "none";
-      } else {
-        mistake.style.display = "none";
-        info.style.display = "block";
-      }
-    };
-     blankInput();
-
-  if(secondLastDigit === 1) {
-    days.textContent = "дней";
-  } else {
-    if(lastDigit >= 2 && lastDigit <= 4) {
-      days.textContent = "дня";
+const empty = document.getElementById('empty');
+//определяем количество оставшихся дней
+function countDays () {
+    let birthday = document.getElementById('birthday').value;
+    let msBirthday = Date.parse(birthday);
+    let today = new Date();
+    let daysOnly = Math.floor((msBirthday - today) / (1000 * 60 * 60 * 24));//получаем количество дней
+    let result = document.getElementById('result');
+    result.textContent = daysOnly;
+    info.style.visibility = "visible";
+//условия , если не заполнен инпут
+    let blankInput = () => {
+    if(inputDate.value == "") {
+    empty.style.display = "block";
+    info.style.display = "none";
     } else {
-      if(lastDigit === 1) {
+    empty.style.display = "none";
+    info.style.display = "block";
+    }
+};
+    blankInput();
+//Условия для правильного склонения слова 'дня'
+    let days = document.getElementById('days');
+    let lastDigit = daysOnly % 10;
+    let secondLastDigit = Math.floor((daysOnly % 100) / 10);
+    if(secondLastDigit === 1) {
+    days.textContent = "дней";
+    } else {
+    if(lastDigit >= 2 && lastDigit <= 4) {
+    days.textContent = "дня";
+    } else {
+    if(lastDigit === 1) {
         days.textContent = "день";
-      } else {
-      days.textContent = "дней";
-     }
-   }
- }
+    } else {
+        days.textContent = "дней";
+    }
+    }
+    }
 }
-
-button.addEventListener('click', countDaysTill);
+button.addEventListener('click', countDays);
