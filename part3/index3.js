@@ -11,6 +11,7 @@ const resultComment = document.querySelector(".yourcomment");
   let rest = fullName.value.slice(1).toLowerCase();
   resultName.innerHTML = capital + rest;
 }*/
+//Спрашиваем пользователя разрешение на показ Имени
 function changeName() {
   let checkbox = document.querySelector('input[name="check"]:checked').value;
   if ((checkbox == "Yes") && (fullName != "")) {
@@ -23,7 +24,7 @@ function changeName() {
   }
 }
 
-
+//Возвращаем отредактированный комментарий
 function changeComment() {
   resultComment.innerHTML = yourComment.value.replace(/(xxx|viagra)/gi, "***");
 }
@@ -32,7 +33,7 @@ function changeComment() {
 }
 */
 
-
+// Возвращаем картинку, еслт пользователь не загрузил аватарку
 function changeImage() {
   let img = [ "./assets/images/1.png" , "./assets/images/2.jpg" , "./assets/images/3.png" , "./assets/images/4.png" ,"./assets/images/5.png"
 ];
@@ -44,7 +45,7 @@ document.querySelector(".yourfoto").src = yourFoto;
     document.querySelector(".yourfoto").src = img[newImg];
   }
 }
-
+// устанавливаем дату отправки данных
 function addDate (){
   let resultDate = new Date();
   document.querySelector(".resultDate").textContent = resultDate;
