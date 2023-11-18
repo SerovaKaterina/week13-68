@@ -68,7 +68,7 @@ console.log(Date.parse(strDate));
 // Подсказка: используйте условие if...else
 const wrongDate = '2023/06/15';
 const newDate = Date.parse(wrongDate);
-if(newDate===NaN) {
+if(isNaN===newDate) {
     console.log('Неправильный формат даты');
 } else{
     console.log(`Правильтный формат даты, результат: ${newDate}`);
@@ -99,14 +99,14 @@ if(number % 3 === 0) {
 }
 //Задание 21
 // Используя цикл if...else, проверьте является ли переменная number однозначным. Результат выведите в консоль.
-if(number.length === 1) {
+if(String(number).length === 1) {
     console.log(`число ${number} является однозначным`);
 } else {
     console.log(`Число ${number} не является однозначным`);
 }
 //Задание 22
 // Используя цикл if...else, проверьте является ли переменная number двузначным. Результат выведите в консоль.
-if(number.length === 2) {
+if(number.toString().length === 2) {
     console.log(`Число ${number} является двузначным`);
 } else {
     console.log(`Число ${number} не является двузначным`);
@@ -140,7 +140,7 @@ if(number < 0) {
 }
 //Задание 26
 // Используя цикл if...else, проверьте является ли переменная number трёхзначным положительным числом. Результат выведите в консоль.
-if( 100 < number < 999) {
+if( number > 100 && number < 999) {
     console.log(`Число ${number} является положительным трёхзначным числом`);
 } else {
     console.log(`Число ${number} не является положительным трёхзначным числом`);
