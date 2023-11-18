@@ -2,10 +2,10 @@ const fullName = document.querySelector(".form1");
 const yourFoto = document.querySelector(".form2");
 const yourComment = document.querySelector(".form3");
 const btn = document.querySelector(".form__btn");
-
+let foto = document.querySelector(".yourfoto");
 const resultName = document.querySelector(".fullname");
 const resultComment = document.querySelector(".yourcomment");
-
+let result = document.querySelector(".resultDate");
 /*  function changeName() {
   let capital = fullName.value.charAt(0).toUpperCase();
   let rest = fullName.value.slice(1).toLowerCase();
@@ -14,7 +14,7 @@ const resultComment = document.querySelector(".yourcomment");
 //Спрашиваем пользователя разрешение на показ Имени
 function changeName() {
   let checkbox = document.querySelector('input[name="check"]:checked').value;
-  if ((checkbox == "Yes") && (fullName != "")) {
+  if ((checkbox == "Yes") && (fullName.value != "")) {
       let capital = fullName.value.charAt(0).toUpperCase();
       let rest = fullName.value.slice(1).toLowerCase();
       resultName.innerHTML = capital + rest;
@@ -39,16 +39,16 @@ function changeImage() {
 ];
 let newImg = Math.round(Math.random() *  img.length);
   if (yourFoto.value != "") {
-document.querySelector(".yourfoto").src = yourFoto;
+foto.src = yourFoto;
   }
   else {
-    document.querySelector(".yourfoto").src = img[newImg];
+foto.src = img[newImg];
   }
 }
 // устанавливаем дату отправки данных
 function addDate (){
   let resultDate = new Date();
-  document.querySelector(".resultDate").textContent = resultDate;
+  result.textContent = resultDate;
 }
 
 function seeResult() {
