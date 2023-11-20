@@ -34,7 +34,23 @@ function countDays () {
         days.textContent = 'день';
     } else {
         days.textContent = 'дней';
+    };
     }
-    }
-    
-button.addEventListener('click', countDays);
+    button.addEventListener('click', countDays);
+//Ограничиваем возможность ввода даты до текущего числа включая сегодня
+const getNextDayDate = () => {
+	const today = new Date();
+	const tomorrow = new Date(today);
+	tomorrow.setDate(tomorrow.getDate() + 1);
+
+	const day = tomorrow.getDate();
+	const month = tomorrow.getMonth() + 1;
+	const year = tomorrow.getFullYear();
+
+	const formattedDay = day < 10 ? `0${day}` : day;
+	const formattedMonth = month < 10 ? `0${month}` : month;
+
+	return `${year}-${formattedMonth}-${formattedDay}`;
+};
+
+inputDate.min = getNextDayDate();
